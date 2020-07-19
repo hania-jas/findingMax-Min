@@ -4,8 +4,8 @@ const buttonMax = document.getElementById('buttonMax');
 
 
 const getSplitedNumbersFromInput = () => {
-    let inputValue = input.value;
-    let arr = inputValue.split(",");
+    const inputValue = input.value;
+    const arr = inputValue.split(",");
     return arr.sort(minToMax);
 
 }
@@ -15,13 +15,13 @@ const minToMax = (a, b) => {
 
 const findMaxNumber = () => {
     arr = getSplitedNumbersFromInput();
-    let max = arr[arr.length - 1];
+    const max = arr[arr.length - 1];
     buttonMax.innerText = max;
 
 }
 const findMinNumber = () => {
     arr = getSplitedNumbersFromInput();
-    let min = arr[0];
+    const min = arr[0];
     buttonMin.innerText = min;
 }
 
