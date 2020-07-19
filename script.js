@@ -1,6 +1,6 @@
 let input = document.getElementById('input');
 const buttonMin = document.getElementById('buttonMin');
-clet buttonMax = document.getElementById('buttonMax');
+let buttonMax = document.getElementById('buttonMax');
 
 const createNumbers = (e) => {
     let clickedValue = e.key;
