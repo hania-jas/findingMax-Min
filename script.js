@@ -1,27 +1,40 @@
 let input = document.getElementById('input');
 const buttonMin = document.getElementById('buttonMin');
-const buttonMax = document.getElementById('buttonMax');
+clet buttonMax = document.getElementById('buttonMax');
 
 const createNumbers = (e) => {
     let clickedValue = e.key;
-    const inputValue = input.value + clickedValue;
+    let inputValue = input.value + clickedValue;
     console.log(inputValue);
-    const array = inputValue.split(",");
-    console.log(array);
+    let array = inputValue.split(",");
+    console.log(array.sort(minToMax));
+
+    if (buttonMax.onclick) {
+        findMax(array);
+    }
 
     // if (isFinite(clickedValue)) {
     // const array = string.split(" ,");
 
     //} else {
-    //     // clean();
     //     // alert('Only numbers accepted!')
 
     // }
+
+}
+const minToMax = (a, b) => {
+    return a - b;
+
+
 }
 
-const clean = () => {
-        inputNumbers = [];
-        input.value = '';
-    }
-    // console.log(inputNumbers);
-document.addEventListener('keydown', createNumbers)
+const findMax = (arr) => {
+    let max = arr[arr.length - 1];
+    buttonMax.innerText = max;
+    console.log('max', max);
+}
+const findMin = (arr) => {
+    let min = arr[0];
+    buttonMin.innerText = min;
+}
+document.addEventListener('keydown', createNumbers);
