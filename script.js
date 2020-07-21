@@ -14,13 +14,13 @@ const minToMax = (a, b) => {
 }
 
 const findMaxNumber = () => {
-    arr = getSplitedNumbersFromInput();
+    const arr = getSplitedNumbersFromInput();
     const max = arr[arr.length - 1];
     buttonMax.innerText = max;
 
 }
 const findMinNumber = () => {
-    arr = getSplitedNumbersFromInput();
+    const arr = getSplitedNumbersFromInput();
     const min = arr[0];
     buttonMin.innerText = min;
 }
