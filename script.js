@@ -9,17 +9,23 @@ const getSplitedNumbersFromInput = () => {
     return arr;
 }
 const sortingArray = () => {
-    const arr = getSplitedNumbersFromInput();
+    let arr = getSplitedNumbersFromInput();
     let j = arr.length;
     for (j; j > 0; j--) {
-        console.log('j', j);
-        for (i = 0; i < j; i++) {
+        console.log({ j });
+        for (let i = 0; i < j; i++) {
             if (arr[i] > arr[i + 1]) {
                 [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
             }
             console.log('arr', arr);
-            displaySortedNumbers.innerHTML = arr;
         }
+    }
+    displaySortedNumbers.innerHTML = arr;
+}
+
+const displaySortedArray = () => {
+    if (displaySortedNumbers.innerHTML === '') {
+        sortingArray();
     }
 }
 
@@ -31,14 +37,12 @@ const findMaxNumber = () => {
         if (arr[i] > maxVal) {
             maxVal = arr[i];
         }
-        console.log('maxVal', maxVal);
+        console.log({ maxVal });
     }
-
     buttonMax.innerText = maxVal;
-    if (displaySortedNumbers.innerHTML === '') {
-        sortingArray();
-    }
+    displaySortedArray();
 }
+
 const findMinNumber = () => {
     const arr = getSplitedNumbersFromInput();
     let minVal = 9999999;
@@ -48,12 +52,10 @@ const findMinNumber = () => {
         if (arr[i] < minVal) {
             minVal = arr[i];
         }
-        console.log('minVal', minVal);
+        console.log({ minVal });
     }
     buttonMin.innerText = minVal;
-    if (displaySortedNumbers.innerHTML === '') {
-        sortingArray();
-    }
+    displaySortedArray();
 }
 
 buttonMax.addEventListener('click', findMaxNumber);
