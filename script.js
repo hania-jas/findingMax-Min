@@ -2,6 +2,7 @@ const input = document.getElementById('userNumbersInput');
 const buttonMin = document.getElementById('buttonMin');
 const buttonMax = document.getElementById('buttonMax');
 const displaySortedNumbers = document.getElementById('displaySortedNumbers');
+const buttonPrimeNumbers = document.getElementById('buttonPrimeNumbers');
 
 const getSplitedNumbersFromInput = () => {
     const inputValue = input.value;
@@ -21,6 +22,7 @@ const sortingArray = () => {
         }
     }
     displaySortedNumbers.innerHTML = arr;
+    return arr;
 }
 
 const displaySortedArray = () => {
@@ -58,5 +60,23 @@ const findMinNumber = () => {
     displaySortedArray();
 }
 
+const findPrimeNumbers = () => {
+    const sortedArr = sortingArray();
+    let complexNumbers = [];
+    let primeNumbers = [];
+    console.log('sortedArr', sortedArr);
+    for (let i = 0; i < sortedArr.length; i++) {
+        if (sortedArr[i] >= 2) {
+            if (sortedArr[i] % 2 === 0 && sortedArr[i] !== 2 || sortedArr[i] % 3 === 0 && sortedArr[i] !== 3 || sortedArr[i] % 5 === 0 && sortedArr[i] !== 5 || sortedArr[i] % 7 === 0 && sortedArr[i] !== 7) {
+                complexNumbers.push(sortedArr[i]);
+            } else {
+                primeNumbers.push(sortedArr[i]);
+            }
+        }
+    }
+    buttonPrimeNumbers.innerText = primeNumbers;
+}
+
 buttonMax.addEventListener('click', findMaxNumber);
 buttonMin.addEventListener('click', findMinNumber);
+buttonPrimeNumbers.addEventListener('click', findPrimeNumbers);
