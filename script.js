@@ -69,7 +69,11 @@ const findPrimeNumbers = () => {
             }
         }
     }
-    buttonPrimeNumbers.innerText = primeNumbers;
+    if (primeNumbers.length === 0) {
+        buttonPrimeNumbers.innerText = 'NONE';
+    } else {
+        buttonPrimeNumbers.innerText = primeNumbers;
+    }
 }
 
 const findNumbersDividedInThree = () => {
@@ -81,7 +85,11 @@ const findNumbersDividedInThree = () => {
             numbersDividedInThree.push(sortedArr[i]);
         }
     }
-    buttonDividedInThree.innerText = numbersDividedInThree;
+    if (numbersDividedInThree.length === 0) {
+        buttonDividedInThree.innerText = 'NONE';
+    } else {
+        buttonDividedInThree.innerText = numbersDividedInThree;
+    }
 }
 
 buttonMax.addEventListener('click', findMaxNumber);
