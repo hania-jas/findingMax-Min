@@ -14,12 +14,10 @@ const sortingArray = () => {
     let arr = getSplitedNumbersFromInput();
     let j = arr.length;
     for (j; j > 0; j--) {
-        console.log({ j });
         for (let i = 0; i < j; i++) {
             if (arr[i] > arr[i + 1]) {
                 [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
             }
-            console.log('arr', arr);
         }
     }
     displaySortedNumbers.innerHTML = arr;
@@ -36,11 +34,9 @@ const findMaxNumber = () => {
     const arr = getSplitedNumbersFromInput();
     let maxVal = -999999999999;
     for (let i = 0; i < arr.length; i++) {
-        console.log('arr[i]', arr[i]);
         if (arr[i] > maxVal) {
             maxVal = arr[i];
         }
-        console.log({ maxVal });
     }
     buttonMax.innerText = maxVal;
     displaySortedArray();
@@ -51,7 +47,6 @@ const findMinNumber = () => {
     let minVal = 9999999;
     console.log(arr);
     for (let i = 0; i < arr.length; i++) {
-        console.log('arr[i]', arr[i]);
         if (arr[i] < minVal) {
             minVal = arr[i];
         }
@@ -65,7 +60,6 @@ const findPrimeNumbers = () => {
     const sortedArr = sortingArray();
     let complexNumbers = [];
     let primeNumbers = [];
-    console.log('sortedArr', sortedArr);
     for (let i = 0; i < sortedArr.length; i++) {
         if (sortedArr[i] >= 2) {
             if (sortedArr[i] % 2 === 0 && sortedArr[i] !== 2 || sortedArr[i] % 3 === 0 && sortedArr[i] !== 3 || sortedArr[i] % 5 === 0 && sortedArr[i] !== 5 || sortedArr[i] % 7 === 0 && sortedArr[i] !== 7) {
