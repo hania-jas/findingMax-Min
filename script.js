@@ -3,6 +3,7 @@ const buttonMin = document.getElementById('buttonMin');
 const buttonMax = document.getElementById('buttonMax');
 const displaySortedNumbers = document.getElementById('displaySortedNumbers');
 const buttonPrimeNumbers = document.getElementById('buttonPrimeNumbers');
+const buttonDividedInThree = document.getElementById('buttonDividedInThree');
 
 const getSplitedNumbersFromInput = () => {
     const inputValue = input.value;
@@ -77,6 +78,19 @@ const findPrimeNumbers = () => {
     buttonPrimeNumbers.innerText = primeNumbers;
 }
 
+const findNumbersDividedInThree = () => {
+    const sortedArr = sortingArray();
+    let numbersDividedInThree = [];
+
+    for (let i = 0; i < sortedArr.length; i++) {
+        if (sortedArr[i] % 3 === 0 && sortedArr[i] !== 0) {
+            numbersDividedInThree.push(sortedArr[i]);
+        }
+    }
+    buttonDividedInThree.innerText = numbersDividedInThree;
+}
+
 buttonMax.addEventListener('click', findMaxNumber);
 buttonMin.addEventListener('click', findMinNumber);
 buttonPrimeNumbers.addEventListener('click', findPrimeNumbers);
+buttonDividedInThree.addEventListener('click', findNumbersDividedInThree);
