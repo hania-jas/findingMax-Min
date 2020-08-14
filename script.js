@@ -4,6 +4,11 @@ const buttonMax = document.getElementById('buttonMax');
 const displaySortedNumbers = document.getElementById('displaySortedNumbers');
 const buttonPrimeNumbers = document.getElementById('buttonPrimeNumbers');
 const buttonDividedInThree = document.getElementById('buttonDividedInThree');
+const displayMin = document.getElementById('displayMin');
+const displayMax = document.getElementById('displayMax');
+const displayPrimeNums = document.getElementById('displayPrimeNums');
+const displayDividedInThree = document.getElementById('displayDividedInThree');
+
 
 const getSplitedNumbersFromInput = () => {
     const inputValue = input.value;
@@ -20,7 +25,7 @@ const sortingArray = () => {
             }
         }
     }
-    displaySortedNumbers.innerHTML = arr;
+    displaySortedNumbers.innerHTML = `POSORTOWANE LICZBY: ${arr}`;
     return arr;
 }
 
@@ -38,7 +43,7 @@ const findMaxNumber = () => {
             maxVal = arr[i];
         }
     }
-    buttonMax.innerText = maxVal;
+    displayMax.innerText = `MAX: ${maxVal}`;
     displaySortedArray();
 }
 
@@ -52,9 +57,18 @@ const findMinNumber = () => {
         }
         console.log({ minVal });
     }
-    buttonMin.innerText = minVal;
+    displayMin.innerText = `MIN: ${minVal}`;
     displaySortedArray();
 }
+
+const isPrimeNumber = number => {
+    if (number % 2 === 0 && number !== 2 || number % 3 === 0 && number !== 3 || number % 5 === 0 && number !== 5 || number % 7 === 0 && number !== 7) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
 
 const findPrimeNumbers = () => {
     const sortedArr = sortingArray();
@@ -62,7 +76,7 @@ const findPrimeNumbers = () => {
     let primeNumbers = [];
     for (let i = 0; i < sortedArr.length; i++) {
         if (sortedArr[i] >= 2) {
-            if (sortedArr[i] % 2 === 0 && sortedArr[i] !== 2 || sortedArr[i] % 3 === 0 && sortedArr[i] !== 3 || sortedArr[i] % 5 === 0 && sortedArr[i] !== 5 || sortedArr[i] % 7 === 0 && sortedArr[i] !== 7) {
+            if (!isPrimeNumber(sortedArr[i])) {
                 complexNumbers.push(sortedArr[i]);
             } else {
                 primeNumbers.push(sortedArr[i]);
@@ -70,9 +84,9 @@ const findPrimeNumbers = () => {
         }
     }
     if (primeNumbers.length === 0) {
-        buttonPrimeNumbers.innerText = 'NONE';
+        displayPrimeNums.innerText = 'LICZBY PIERWSZE: BRAK';
     } else {
-        buttonPrimeNumbers.innerText = primeNumbers;
+        displayPrimeNums.innerText = `LICZBY PIERWSZE: ${primeNumbers}`;
     }
 }
 
@@ -86,9 +100,9 @@ const findNumbersDividedInThree = () => {
         }
     }
     if (numbersDividedInThree.length === 0) {
-        buttonDividedInThree.innerText = 'NONE';
+        displayDividedInThree.innerText = 'LICZBY PODZIELNE PRZEZ TRZY: BRAK';
     } else {
-        buttonDividedInThree.innerText = numbersDividedInThree;
+        displayDividedInThree.innerText = `LICZBY PODZIELNE PRZEZ TRZY: ${numbersDividedInThree}`;
     }
 }
 
